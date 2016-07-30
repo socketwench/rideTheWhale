@@ -1,0 +1,8 @@
+version: '2'
+services:
+  web:
+    image: php:apache
+    ports:
+      - "80:80"
+  db:
+    image: mariadb

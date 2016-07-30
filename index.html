@@ -146,27 +146,169 @@
 
         <section>
           <section>
-            <h1>Getting and running containers</h1>
+            <h1>Getting containers</h1>
           </section>
-          <!-- Docker Hub -->
-          <!-- docker pull -->
-          <!-- docker run -->
-          <!-- -i and -t -->
-          <!-- Running containers in the background -->
-          <!-- Container IDs -->
-          <!-- docker exec -->
+          <section>
+            <h2>Docker is like Vagrant</h2>
+            <p>You rarely build containers yourself.</p>
+          </section>
+          <section>
+            <h2>Docker Hub</h2>
+            <p>Online repository of ready-to-use containers</p>
+            <a href="https://hub.docker.com/">hub.docker.com</a>
+          </section>
+          <!-- Docker upload comic? -->
+          <section>
+            <h2>Official Containers</h2>
+            <p>Typically created by project maintainers</p>
+            <p>Apache, PHP, MySQL, and many Linux Distros</p>
+          </section>
+          <section>
+            <h2>Official Drupal Container</h2>
+            <a href="https://hub.docker.com/_/drupal/">hub.docker.com/_/drupal</a>
+            <p><span class="fragment">Great for demos...</span><span class="fragment">not great for development.</span></p>
+          </section>
+          <section>
+            <h2>Downloading Containers</h2>
+            <code>docker pull <em>image_name</em></code>
+            <p><em>image_name</em> is the name on Docker Hub</p>
+          </section>
+          <section>
+            <h2>Pulling Debian</h2>
+            <pre><code>$ docker pull debian</code></pre>
+            <p>Good "base image" for web projects</p>
+          </section>
+          <section>
+            <h2>Container tags</h2>
+            <code><em>image_name</em>:<em>tag</em></code>
+            <p>Used for different versions or varients</p>
+          </section>
+          <section>
+            <h2>Tags are optional</h2>
+            <p>Default to <code>latest</code></p>
+            <p class="fragment">Unique per container, check page on Hub</p>
+          </section>
         </section>
 
         <section>
           <section>
-            <h1>Running multiple containers</h1>
+            <h1>Using containers</h1>
           </section>
-          <!-- "Container sets" -->
-          <!-- Docker Compose -->
-          <!-- docker-compose.yml -->
-          <!-- Building a basic web environment -->
-          <!-- Mapping ports -->
-          <!-- docker-compose run vs. up -->
+          <section>
+            <h2>Running a container</h2>
+            <code>docker run <em>image_name</em> <em>/command/to/run</em></code>
+          </section>
+          <!-- -i and -t -->
+          <section>
+            <h2>Run in the background</h2>
+            <pre><code>$ docker run -d debian /bin/bash -c "while true; do sleep 1; done"
+b4d333ad4d0f9c68249a091fdde53d25a09cbc785c5aba2a697b3a3ea04da778
+
+$</code></pre>
+            <p class="fragment">Think "detach"</p>
+          </section>
+          <section>
+            <h2>Container IDs</h2>
+            <p>Unique identifier for that container instance</p>
+            <p>Use the first few characters as a shorthand</p>
+          </section>
+          <section>
+            <h2>Listing containers</h2>
+            <code>docker ps</code>
+            <p class="fragment">Think "process"</p>
+          </section>
+          <section>
+            <h2>Using a detached container</h2>
+            <code>docker exec <em>container_id</em> <em>/command/to/run</em></code>
+          </section>
+          <section>
+            <h2>Using <code>exec</code></h2>
+            <pre><code>$ docker exec -i -t b4d /bin/bash
+root@b4d333ad4d0f:/#</code></pre>
+            <p class="fragment">Use <code>exit</code> to quit</p>
+          </section>
+          <section>
+            <h2>Stopping detached containers</h2>
+            <code>docker kill <em>container_id</em></code>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h1>Building a web stack</h1>
+          </section>
+          <section>
+            <h2>"A container is just a process"</h2>
+            <p class="fragment">Not exactly true, but close</p>
+          </section>
+          <section>
+            <h2>LAMP needs multiple processes</h2>
+            <p class="fragment">One process = one container</p>
+          </section>
+          <section>
+            <h2>Docker Compose</h2>
+            <p>Manage "container sets" with one file</p>
+          </section>
+          <section>
+            <h2>docker-compose.yml</h2>
+            <p>Descriptive, not imperitive</p>
+            <p>Save in the root directory of your project!</p>
+          </section>
+          <section>
+            <h2>A basic LAMP set</h2>
+            <pre><code>version: '2'
+services:
+  web:
+    image: php:apache
+  db:
+    image: mariadb</code></pre>
+          </section>
+          <section>
+            <h2>Starting container sets</h2>
+            <code>docker-compose up -d</code>
+            <p class="fragment">docker-compose.yml must be in current directory!</p>
+          </section>
+          <section>
+            <h2>Listing container sets</h2>
+            <pre><code>$ docker-compose ps
+       Name                    Command             State    Ports
+------------------------------------------------------------------
+ridethewhale_db_1    docker-entrypoint.sh mysqld   Exit 1
+ridethewhale_web_1   apache2-foreground            Up       80/tcp</code></pre>
+          </section>
+          <section>
+            <h2>Compose and container names</h2>
+            <code><em>parentDirName</em>_<em>serviceName</em>_<em>index</em></code>
+          </section>
+          <section>
+            <h2>Use unique project names!</h2>
+            <pre><code>/home/tess/projects/rideTheWhale
+├── docker-compose.yml
+└── docroot</code></pre>
+          </section>
+          <section>
+            <h2>Mapping ports</h2>
+            <p>Under the <code>ports</code> section:</p>
+            <code>"<em>host_post</em>:<em>container_port"</em></code>
+          </section>
+          <section>
+            <pre><code>version: '2'
+services:
+  web:
+    image: php:apache
+    ports:
+      - "80:80"
+  db:
+    image: mariadb</code></pre>
+          </section>
+          <section>
+            <h2>Updating containers</h2>
+            <pre><code>$ docker-compose kill
+$ docker-compose up -d</code></pre>
+          </section>
+          <section>
+            <img src="images/web-forbidden.png" />
+          </section>
         </section>
 
         <section>
