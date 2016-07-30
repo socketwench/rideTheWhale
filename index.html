@@ -315,22 +315,123 @@ $ docker-compose up -d</code></pre>
           <section>
             <h1>Getting files in the container</h1>
           </section>
-          <!-- Volumes -->
-          <!-- Updating our docker-compose.yml -->
-          <!-- Adding a drush container -->
-          <!-- volumes_from -->
-          <!-- Container lifecycle -->
-          <!-- Killing and re-upping -->
+          <section>
+            <h2>Volumes</h2>
+            <p class="fragment">Creates a persistent directory inside a container</p>
+            <p class="fragment">Mounts a directory or file in the container</p>
+          </section>
+          <section>
+            <h2>Volumes in Compose</h2>
+            <p>In the <code>volumes</code> section...</p>
+            <code><em>path/on/host</em>:<em>path/in/container</em></code>
+          </section>
+          <section>
+            <h2>Our project so far</h2>
+            <pre><code>/home/tess/projects/rideTheWhale
+├── docker-compose.yml
+└── docroot
+    └── index.html</code></pre>
+          </section>
+          <section>
+            <pre><code>version: '2'
+services:
+  web:
+    image: php:apache
+    ports:
+      - "80:80"
+    volumes:
+      - ./docroot:/var/www/html
+  db:
+    image: mariadb</code></pre>
+          </section>
+          <section>
+            <h2>Specifying paths</h2>
+            <p class="fragment">Use relative paths to Compose file</p>
+            <p class="fragment">Use absolute paths in the container</p>
+          </section>
+          <section>
+            <h2>Kill, up, refresh</h2>
+            <img class="fragment" src="images/web-static.png" />
+          </section>
         </section>
 
         <section>
           <section>
             <h1>Configuration</h1>
           </section>
-          <!-- Different ways to get config in a container -->
-          <!-- Environment statement -->
-          <!-- Adding a DB container -->
-          <!-- Sharing environment variables -->
+          <section>
+            <h2>How to pass config?</h2>
+            <p class="fragment">Bake it into the container</p>
+            <p class="fragment">Mount configuration files</p>
+            <p class="fragment">Use environment variables</p>
+          </section>
+          <section>
+            <h2>Setting variables</h2>
+            <p>In the <code>environment</code> section...</p>
+            <code><em>VAR_NAME</em>=<em>VALUE</em></code>
+          </section>
+          <section>
+            <h2>What vars to use?</h2>
+            <p>Check Hub page for variable names and use</p>
+          </section>
+          <section>
+            <pre><code>version: '2'
+services:
+  web:
+    image: php:apache
+    ports:
+      - "80:80"
+    volumes:
+      - ./docroot:/var/www/html
+  db:
+    image: mariadb
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=your_database_name
+      - MYSQL_USER=your_database_user
+      - MYSQL_PASSWORD=your_database_password</code></pre>
+            <small class="fragment">(Scroll down.)</small>
+          </section>
+          <section>
+            <h2>Wait, no port?</h2>
+            <p>Containers in the set on a private network</p>
+            <p>No need to open ports between containers</p>
+          </section>
+          <section>
+            <pre><code>version: '2'
+services:
+  web:
+    image: php:apache
+    ports:
+      - "80:80"
+    volumes:
+      - ./docroot:/var/www/html
+  db:
+    image: mariadb
+    ports:
+      - "3306:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=your_database_name
+      - MYSQL_USER=your_database_user
+      - MYSQL_PASSWORD=your_database_password</code></pre>
+            <small class="fragment">(Scroll down.)</small>
+          </section>
+          <section>
+            <pre><code>$ docker-compose kill &amp;&amp; docker-compose up -d
+$ mysql -u your_database_user -p -h 127.0.0.1 -P 3306
+Enter password:
+
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 2
+Server version: 10.1.16-MariaDB-1~jessie mariadb.org binary distribution
+
+Copyright (c) 2000, 2016, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]></code></pre>
+          </section>
         </section>
 
         <section>
@@ -357,6 +458,46 @@ $ docker-compose up -d</code></pre>
 
         <section>
           <section>
+            <h1>Adding Drush</h1>
+          </section>
+          <section>
+            <h2>There's a container for that</h2>
+            <a href="https://hub.docker.com/r/drush/drush/">hub.docker.com/r/drush/drush</a>
+          </section>
+          <section>
+            <h2>But what about files?</h2>
+          </section>
+          <section>
+            <h2>Reusing volumes</h2>
+            <p class="fragment">Copy and paste <code>volume</code> sections</p>
+            <p class="fragment">Used <a href="https://docs.docker.com/compose/compose-file/#/volumes-volume-driver">named volumes</a> (Compose 2+)</p>
+            <p class="fragment">Use <code>volumes_from</code></p>
+          </section>
+          <section>
+            <pre><code>version: '2'
+services:
+  web:
+    build: .docker/web
+    ports:
+      - "80:80"
+    volumes:
+      - ./docroot:/var/www/html
+  drush:
+    image: drush/drush
+    volumes_from:
+      - web
+  db:
+    image: mariadb</code></pre>
+            <small class="fragment">(Scroll down.)</small>
+          </section>
+          <section>
+            <h2>Running drush</h2>
+            <code>docker-compose run drush <em>drushCommand</em></code>
+          </section>
+        </section>
+
+        <section>
+          <section>
             <h1>Helper scripts</h1>
           </section>
           <!-- The problem with docker-compose run -->
@@ -370,6 +511,7 @@ $ docker-compose up -d</code></pre>
           <section>
             <h1>Where to go from here</h1>
           </section>
+          <!-- Where to find documentation -->
           <!-- Upload custom containers to HUB -->
           <!-- Using pre-made containers -->
           <!-- Dropwhale -->
