@@ -438,22 +438,125 @@ MariaDB [(none)]></code></pre>
           <section>
             <h1>Now for Drupal!</h1>
           </section>
-          <!-- Sure, you can manually install it... -->
-          <!-- Automating your Drupal install -->
-          <!-- docker-compose exec -->
-          <!-- Dockerized drush si -->
-          <!-- What about the database? -->
+          <section>
+            <h2>Prepping the files</h2>
+            <p>Download to volume-mounted directory</p>
+            <p>Create, set permissions for files directory</p>
+            <p>Create services.yml and settings.php as normal</p>
+          </section>
+          <section>
+            <img src="images/drupal-install1.png" />
+          </section>
+          <!-- FINALLY! -->
+          <section>
+            <img src="images/drupal-install2.png" />
+          </section>
+          <!-- $#%@! -->
+          <!-- How do we modify the container? -->
         </section>
 
         <section>
           <section>
             <h1>Customizing containers</h1>
           </section>
-          <!-- Dockerfiles -->
-          <!-- Turtles all the way down -->
-          <!-- Installing software -->
-          <!-- Directory structure -->
-          <!-- docker-compose build -->
+          <section>
+            <h2>Dockerfiles</h2>
+            <p>Container "source code"</p>
+          </section>
+          <section>
+            <h2>Creating Dockerfiles</h2>
+            <p>Always named <code>Dockerfile</code></p>
+            <p>Imperitive, not descriptive</p>
+          </section>
+          <section>
+            <h2>Directories for containers</h2>
+            <pre><code>/home/tess/projects/rideTheWhale
+├── .docker
+│   ├── web
+│   │   └── Dockerfile
+│   └── db
+├── docker-compose.yml
+└── docroot
+    └── index.html</code></pre>
+            <p class="fragment">Common, but only a suggestion</p>
+          </section>
+          <section>
+            <h2>The first two lines</h2>
+            <pre><code>FROM php:apache
+MAINTAINER tess@deninet.com</code></pre>
+          </section>
+          <section>
+            <h2>Turtles all the way down</h2>
+          </section>
+          <!-- Turtles all the way down comic -->
+          <section>
+            <h2>No <code>INSTALL</code> directive</h2>
+            <p>Docker lets the <del>container</del> <ins>base image</ins> decide!</p>
+          </section>
+          <section>
+            <h2>Install commands</h2>
+            <p class="fragment">Debian uses <code>apt-get</code></p>
+            <p class="fragment">CentOS uses <code>yum</code></p>
+            <p class="fragment">Some containers provide special install scripts!</p>
+          </section>
+          <section>
+            <h2><code>RUN</code> directive</h2>
+            <code>RUN <em>/command/to/run</em></code>
+          </section>
+          <section>
+            <h2><code>RUN</code> is not interactive!</h2>
+            <p class="fragment">Can fail/hang building a container</p>
+            <p class="fragment">Search for "headless", "unattended installation"</p>
+          </section>
+          <section>
+            <pre><code>FROM php:apache
+MAINTAINER tess@deninet.com
+
+RUN apt-get update && apt-get install -yq \
+    libfreetype6-dev \
+    libjpeg62-turbo-dev \
+    libmcrypt-dev \
+    libpng12-dev \
+    libicu-dev
+
+RUN docker-php-ext-install gd json intl pdo pdo_mysql mbstring</code></pre>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h1>Customizing container sets</h1>
+          </section>
+          <section>
+            <h2>Dockerfiles and Compose</h2>
+            <code>build: <em>path/to/Dockerfile</em></code>
+            <p class="fragment">Use instead of <code>image</code></p>
+          </section>
+          <section>
+            <pre><code>version: '2'
+services:
+  web:
+    build: .docker/web
+    ports:
+      - "80:80"
+    volumes:
+      - ./docroot:/var/www/html
+  db:
+    image: mariadb
+    ports:
+      - "3306:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=your_database_name
+      - MYSQL_USER=your_database_user
+      - MYSQL_PASSWORD=your_database_password</code></pre>
+            <small class="fragment">(Scroll down.)</small>
+          </section>
+          <section>
+            <h2>Building a container set</h2>
+            <code>docker-compose build <em>optionalServiceName</em></code>
+            <p class="fragment">Must be run before <code>up</code>!</p>
+          </section>
         </section>
 
         <section>
@@ -487,20 +590,32 @@ services:
     volumes_from:
       - web
   db:
-    image: mariadb</code></pre>
+    image: mariadb
+    ports:
+      - "3306:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=your_database_name
+      - MYSQL_USER=your_database_user
+      - MYSQL_PASSWORD=your_database_password</code></pre>
             <small class="fragment">(Scroll down.)</small>
           </section>
           <section>
             <h2>Running drush</h2>
             <code>docker-compose run drush <em>drushCommand</em></code>
+            <p class="fragment">Creates a new container instace each time!</p>
           </section>
         </section>
 
         <section>
           <section>
-            <h1>Helper scripts</h1>
+            <h1>Automating and helper scripts</h1>
           </section>
           <!-- The problem with docker-compose run -->
+          <!-- Automating your Drupal install -->
+          <!-- docker-compose exec -->
+          <!-- Dockerized drush si -->
+
           <!-- Supervisor -->
           <!-- CMD and ENTRYPOINT -->
           <!-- COPYing files -->
@@ -511,12 +626,39 @@ services:
           <section>
             <h1>Where to go from here</h1>
           </section>
-          <!-- Where to find documentation -->
-          <!-- Upload custom containers to HUB -->
-          <!-- Using pre-made containers -->
-          <!-- Dropwhale -->
-          <!-- Docker4Drupal -->
-          <!-- Build your own! -->
+          <section>
+            <h2>Read the docs</h2>
+            <p><a href="https://docs.docker.com/">docs.docker.com</a></p>
+            <p class="fragment"><a href="http://deninet.com/tags/docker-scratch">deninet.com/tags/docker-scratch</a></p>
+          </section>
+          <section>
+            <h2>Use pre-made containers</h2>
+            <p>Lots of options to choose from!</p>
+            <p class="fragment">Find the way that fits your style and project</p>
+          </section>
+          <section>
+            <h2>Dropwhale</h2>
+            <p class="fragment">Drop-in D8 module dev environment</p>
+            <p class="fragment">Pulls, installs Drupal dev internally</p>
+          </section>
+          <section>
+            <h2>Getting Dropwhale</h2>
+            <p><a href="https://github.com/socketwench/dropwhale">github.com/socketwench/dropwhale</a></p>
+          </section>
+          <section>
+            <h2>Docker4Drupal</h2>
+            <p class="fragment">Full-featured: Redis, Memcached, Solr</p>
+            <p class="fragment"><a href="http://docker4drupal.org/">docker4drupal.org</a></p>
+          </section>
+          <section>
+            <h2>Build your own!</h2>
+            <p class="fragment">Per-project is OK!</p>
+          </section>
+          <section>
+            <h2>Contibute to Hub</h2>
+            <p>It's free and anyone can do it</p>
+            <p class="fragment">Hub builds your containers, so you don't have to locally</p>
+          </section>
         </section>
 
 			</div>
