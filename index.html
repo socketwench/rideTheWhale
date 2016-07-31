@@ -134,8 +134,17 @@
           </section>
           <section>
             <h2>Older Systems?</h2>
-            <p>Pre-Yosemite macOS &amp; Non-pro Windows 10</p>
             <a href="https://www.docker.com/products/docker-toolbox">docker.com/products/docker-toolbox</a>
+            <p class="fragment">Requires Virtualbox</p>
+          </section>
+          <section data-transition="none">
+            <img src="images/linuxAndDocker1.png" />
+          </section>
+          <section data-transition="none">
+            <img src="images/linuxAndDocker2.png" />
+          </section>
+          <section data-transition="none">
+            <img src="images/linuxAndDocker3.png" />
           </section>
           <section>
             <h2>Installing on Linux</h2>
@@ -157,7 +166,24 @@
             <p>Online repository of ready-to-use containers</p>
             <a href="https://hub.docker.com/">hub.docker.com</a>
           </section>
-          <!-- Docker upload comic? -->
+          <section data-transition="none">
+            <img src="images/hubUpload1.png" />
+          </section>
+          <section data-transition="none">
+            <img src="images/hubUpload2.png" />
+          </section>
+          <section data-transition="none">
+            <img src="images/hubUpload3.png" />
+          </section>
+          <section data-transition="none">
+            <img src="images/hubUpload4.png" />
+          </section>
+          <section data-transition="none">
+            <img src="images/hubUpload5.png" />
+          </section>
+          <section data-transition="none">
+            <img src="images/hubUpload6.png" />
+          </section>
           <section>
             <h2>Official Containers</h2>
             <p>Typically created by project maintainers</p>
@@ -287,9 +313,9 @@ ridethewhale_web_1   apache2-foreground            Up       80/tcp</code></pre>
 └── docroot</code></pre>
           </section>
           <section>
-            <h2>Mapping ports</h2>
-            <p>Under the <code>ports</code> section:</p>
-            <code>"<em>host_post</em>:<em>container_port"</em></code>
+            <h2>Port mapping</h2>
+            <p>Needed to access the container from the host</p>
+            <p class="fragment"><code>"<em>portOnHost</em>:<em>portInContainer</em>"</code></p>
           </section>
           <section>
             <pre><code>version: '2'
@@ -394,8 +420,8 @@ services:
           </section>
           <section>
             <h2>Wait, no port?</h2>
-            <p>Containers in the set on a private network</p>
-            <p>No need to open ports between containers</p>
+            <p class="fragment">Private network automatically created per set</p>
+            <p class="fragment">Containers preconfigured with the right port open</p>
           </section>
           <section>
             <pre><code>version: '2'
@@ -440,19 +466,25 @@ MariaDB [(none)]></code></pre>
           </section>
           <section>
             <h2>Prepping the files</h2>
-            <p>Download to volume-mounted directory</p>
-            <p>Create, set permissions for files directory</p>
-            <p>Create services.yml and settings.php as normal</p>
+            <p class="fragment">Download to volume-mounted directory</p>
+            <p class="fragment">Create, set permissions for files directory</p>
+            <p class="fragment">Create services.yml and settings.php as normal</p>
           </section>
           <section>
             <img src="images/drupal-install1.png" />
           </section>
-          <!-- FINALLY! -->
+          <section>
+            <img src="images/finally.png" />
+          </section>
           <section>
             <img src="images/drupal-install2.png" />
           </section>
-          <!-- $#%@! -->
-          <!-- How do we modify the container? -->
+          <section data-transition="none">
+            <img src="images/cursing.png" />
+          </section>
+          <section data-transition="none">
+            <img src="images/maybeWeCanCustomize.png" />
+          </section>
         </section>
 
         <section>
@@ -487,8 +519,33 @@ MAINTAINER tess@deninet.com</code></pre>
           </section>
           <section>
             <h2>Turtles all the way down</h2>
+            <p class="fragment">All containers are based on another container</p>
           </section>
-          <!-- Turtles all the way down comic -->
+          <section data-transition="none">
+            <img src="images/turtles1.png" />
+          </section>
+          <section data-transition="none">
+            <img src="images/turtles2.png" />
+          </section>
+          <section data-transition="none">
+            <img src="images/turtles3.png" />
+          </section>
+          <section data-transition="none">
+            <img src="images/turtles4.png" />
+          </section>
+          <section data-transition="none">
+            <img src="images/turtles5.png" />
+          </section>
+          <section>
+            <h2><code>scratch</code> container</h2>
+            <p>Starting point for all containers</p>
+            <p class="fragment">Just an empty *.tar.gz file</p>
+          </section>
+          <section>
+            <h2>"Base image"</h2>
+            <p class="fragment">Base Linux install (Debian, CentOS, Arch, etc.)</p>
+            <p class="fragment">Whatever image you start with</p>
+          </section>
           <section>
             <h2>No <code>INSTALL</code> directive</h2>
             <p>Docker lets the <del>container</del> <ins>base image</ins> decide!</p>
@@ -509,6 +566,11 @@ MAINTAINER tess@deninet.com</code></pre>
             <p class="fragment">Search for "headless", "unattended installation"</p>
           </section>
           <section>
+            <h2>Non-interactive <code>apt-get</code></h2>
+            <p class="fragment"><code>apt-get -yq <em>packagesToInstall</em></code></p>
+            <p class="fragment">"Yes to all questions, use Quiet installation."</p>
+          </section>
+          <section>
             <pre><code>FROM php:apache
 MAINTAINER tess@deninet.com
 
@@ -520,12 +582,6 @@ RUN apt-get update && apt-get install -yq \
     libicu-dev
 
 RUN docker-php-ext-install gd json intl pdo pdo_mysql mbstring</code></pre>
-          </section>
-        </section>
-
-        <section>
-          <section>
-            <h1>Customizing container sets</h1>
           </section>
           <section>
             <h2>Dockerfiles and Compose</h2>
@@ -551,6 +607,10 @@ services:
       - MYSQL_USER=your_database_user
       - MYSQL_PASSWORD=your_database_password</code></pre>
             <small class="fragment">(Scroll down.)</small>
+          </section>
+          <section>
+            <h2>No other lines changed?</h2>
+            <p class="fragment">We're just adding more to <code>php:apache</code></p>
           </section>
           <section>
             <h2>Building a container set</h2>
@@ -601,30 +661,67 @@ services:
             <small class="fragment">(Scroll down.)</small>
           </section>
           <section>
+            <pre><code>$ docker-compose ps
+        Name                     Command             State            Ports
+------------------------------------------------------------------------------------
+ridethewhale_db_1      docker-entrypoint.sh mysqld   Up       0.0.0.0:3306->3306/tcp
+ridethewhale_drush_1   drush                         Exit 0
+ridethewhale_web_1     apache2-foreground            Up       0.0.0.0:80->80/tcp</code></pre>
+          </section>
+          <section>
+            <h2>Why did drush stop?</h2>
+          </section>
+          <section>
+            <h2>Task-specific containers</h2>
+            <p class="fragment">Executes a command, then quits</p>
+            <p class="fragment">Must be run interactively!</p>
+          </section>
+          <section>
             <h2>Running drush</h2>
             <code>docker-compose run drush <em>drushCommand</em></code>
             <p class="fragment">Creates a new container instace each time!</p>
           </section>
-        </section>
-
-        <section>
           <section>
-            <h1>Automating and helper scripts</h1>
+            <h2>A container is a process...</h2>
+            <p class="fragment">...and stays up as long as its process runs</p>
           </section>
-          <!-- The problem with docker-compose run -->
-          <!-- Automating your Drupal install -->
-          <!-- docker-compose exec -->
-          <!-- Dockerized drush si -->
+          <section>
+            <pre><code>$ docker-compose run drush si  \
+    --uri=http://web \
+    --root=/var/www/html \
+    --db-url=mysql://your_database_user:your_database_password@db/your_database_name -y
 
-          <!-- Supervisor -->
-          <!-- CMD and ENTRYPOINT -->
-          <!-- COPYing files -->
-          <!-- docker-compose exec -->
+You are about to DROP all tables in your 'your_database_name' database. Do you want to continue? (y/n): y
+Starting Drupal installation. This takes a while. Consider using the --notify global option.                                                                  [ok]
+Installation complete.  User name: admin  User password: jvBdZnmeMt                                                                                           [ok]
+Congratulations, you installed Drupal!
+
+$</code></pre>
+          </section>
+          <section>
+            <img src="images/drupal-installed.png" />
+          </section>
+          <section>
+            <h2>Have a DB dump?</h2>
+            <p class="fragment">Use a client on the host to load it</p>
+          </section>
         </section>
+
+        <!-- <section>
+          <section>
+            <h1>Finishing touches</h1>
+          </section>
+        </section> -->
 
         <section>
           <section>
             <h1>Where to go from here</h1>
+          </section>
+          <section>
+            <h2>A better CLI container</h2>
+            <p class="fragment">Use Supervisor for an always-running container</p>
+            <p class="fragment">Drupal Console, SASS, Grunt, etc.</p>
+            <p class="fragment">Use <code>docker-compose exec</code> for more speed</p>
           </section>
           <section>
             <h2>Read the docs</h2>
