@@ -15,8 +15,8 @@
    id="svg2"
    version="1.1"
    inkscape:version="0.91 r13725"
-   sodipodi:docname="waitINeedAVM.svg"
-   inkscape:export-filename="../images/waitINeedAVM.png"
+   sodipodi:docname="whyDidDrushStop.svg"
+   inkscape:export-filename="../images/whyDidDrushStop2.png"
    inkscape:export-xdpi="90"
    inkscape:export-ydpi="90">
   <defs
@@ -582,10 +582,10 @@
      inkscape:pageopacity="0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.61107384"
-     inkscape:cx="445.49869"
-     inkscape:cy="329.18563"
+     inkscape:cx="524.51633"
+     inkscape:cy="372.33267"
      inkscape:document-units="px"
-     inkscape:current-layer="layer1"
+     inkscape:current-layer="layer2"
      showgrid="false"
      inkscape:window-width="1366"
      inkscape:window-height="741"
@@ -634,11 +634,6 @@
      id="layer1"
      transform="translate(-35.315951,293.31249)"
      style="display:inline">
-    <path
-       style="opacity:1;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:3.20000005;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
-       d="M 529.39648 320.60938 A 94.096649 48.275673 0 0 0 435.29883 368.88477 A 94.096649 48.275673 0 0 0 528.16016 417.12891 A 162.82811 58.094452 0 0 0 476.75586 459.43555 A 162.82811 58.094452 0 0 0 639.58398 517.53125 A 162.82811 58.094452 0 0 0 707.9082 512.09375 L 793.68555 546.98633 L 756.49414 499.7832 A 162.82811 58.094452 0 0 0 802.41211 459.43555 A 162.82811 58.094452 0 0 0 639.58398 401.3418 A 162.82811 58.094452 0 0 0 594.74023 403.61133 A 94.096649 48.275673 0 0 0 623.49219 368.88477 A 94.096649 48.275673 0 0 0 529.39648 320.60938 z "
-       transform="translate(35.315951,-293.31249)"
-       id="path19812" />
     <g
        style="stroke:#000000;stroke-opacity:1"
        id="g3585"
@@ -710,48 +705,42 @@
            height="46.09375"
            x="761.71875"
            y="545.8125" /></flowRegion><flowPara
-         id="flowPara12972" /></flowRoot>    <path
-       inkscape:connector-curvature="0"
-       d="m 901.15354,284.67052 c 0,-4.00697 1.42931,-7.25527 3.19246,-7.25527 1.76314,0 3.19248,3.2483 3.19248,7.25527 0,4.00717 -1.42934,7.25547 -3.19248,7.25547 -1.76315,0 -3.19246,-3.2483 -3.19246,-7.25547 z"
-       style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1.25;stroke-opacity:1"
-       id="path3695" />
-    <path
-       inkscape:connector-curvature="0"
-       d="m 922.72313,284.67052 c 0,-4.00697 1.4293,-7.25527 3.1924,-7.25527 1.7632,0 3.1925,3.2483 3.1925,7.25527 0,4.00717 -1.4293,7.25547 -3.1925,7.25547 -1.7631,0 -3.1924,-3.2483 -3.1924,-7.25547 z"
-       style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1.25;stroke-opacity:1"
-       id="path3697" />
-    <flowRoot
-       xml:space="preserve"
-       id="flowRoot19790"
-       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:30px;line-height:125%;font-family:'Anime Ace 2.0 BB';-inkscape-font-specification:'Anime Ace 2.0 BB, Normal';text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       transform="translate(94.228635,-116.57443)"><flowRegion
-         id="flowRegion19792"><rect
-           id="rect19794"
-           width="472.93793"
-           height="216.01317"
-           x="345.29379"
-           y="263.87866" /></flowRegion><flowPara
-         id="flowPara19798">I need a VM?</flowPara></flowRoot>    <flowRoot
-       xml:space="preserve"
-       id="flowRoot19802"
-       style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:30px;line-height:125%;font-family:'Anime Ace 2.0 BB';-inkscape-font-specification:'Anime Ace 2.0 BB, Bold';text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-       transform="translate(7.4960724,-231.30919)"><flowRegion
-         id="flowRegion19804"><rect
-           id="rect19806"
-           width="325.65622"
-           height="104.73366"
-           x="397.66061"
-           y="288.4256"
-           style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:30px;line-height:125%;font-family:'Anime Ace 2.0 BB';-inkscape-font-specification:'Anime Ace 2.0 BB, Bold';text-align:center;writing-mode:lr-tb;text-anchor:middle" /></flowRegion><flowPara
-         id="flowPara19808">wait!</flowPara></flowRoot>  </g>
+         id="flowPara12972" /></flowRoot>    <g
+       transform="translate(-6.8411035,-9.566027)"
+       style="display:inline"
+       id="g7472-7">
+      <path
+         id="path3695-8"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1.25;stroke-opacity:1"
+         d="m 903.15354,284.67052 c 0,-4.00697 1.42931,-7.25527 3.19246,-7.25527 1.76314,0 3.19248,3.2483 3.19248,7.25527 0,4.00717 -1.42934,7.25547 -3.19248,7.25547 -1.76315,0 -3.19246,-3.2483 -3.19246,-7.25547 z"
+         inkscape:connector-curvature="0" />
+      <path
+         id="path3697-2"
+         style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1.25;stroke-opacity:1"
+         d="m 924.72313,284.67052 c 0,-4.00697 1.4293,-7.25527 3.1924,-7.25527 1.7632,0 3.1925,3.2483 3.1925,7.25527 0,4.00717 -1.4293,7.25547 -3.1925,7.25547 -1.7631,0 -3.1924,-3.2483 -3.1924,-7.25547 z"
+         inkscape:connector-curvature="0" />
+    </g>
+  </g>
   <g
      inkscape:groupmode="layer"
      id="layer2"
      inkscape:label="Layer 1"
-     style="display:none" />
-  <g
-     inkscape:groupmode="layer"
-     id="layer3"
-     inkscape:label="Layer 2"
-     style="display:inline" />
+     style="display:inline">
+    <path
+       style="display:inline;opacity:1;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:3.20000005;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       d="M 528.75977,545.34961 A 194.73915,78.550247 0 0 0 334.02148,623.90039 194.73915,78.550247 0 0 0 528.75977,702.45117 194.73915,78.550247 0 0 0 723.5,623.90039 194.73915,78.550247 0 0 0 721.29102,612.625 l 64.21093,-29.63672 -85.82031,3.4336 A 194.73915,78.550247 0 0 0 528.75977,545.34961 Z"
+       id="path7513"
+       inkscape:connector-curvature="0" />
+    <flowRoot
+       xml:space="preserve"
+       id="flowRoot7505"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:30px;line-height:125%;font-family:'Anime Ace 2.0 BB';-inkscape-font-specification:'Anime Ace 2.0 BB, Normal';text-align:center;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:middle;display:inline;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       transform="translate(-139.09939,203.285)"><flowRegion
+         id="flowRegion7507"><rect
+           id="rect7509"
+           width="342.02084"
+           height="142.37231"
+           x="497.48489"
+           y="366.97583" /></flowRegion><flowPara
+         id="flowPara7511">Why did the drush container stop?</flowPara></flowRoot>  </g>
 </svg>

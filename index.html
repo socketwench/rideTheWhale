@@ -27,7 +27,8 @@
 				<section>
           <h1>Ride the Whale!</h1>
           <h2>Docker for Drupalists</h2>
-          <small>Use arrow keys or space to naviagate</small>
+          <img src="images/controls.png" />
+          <p>socketwench.github.io/rideTheWhale</p>
         </section>
 
         <section>
@@ -257,9 +258,23 @@
           </section>
           <section>
             <h2>Running a container</h2>
-            <code>docker run <em>image_name</em> <em>/command/to/run</em></code>
+            <code>docker run <em>image_name</em></code>
           </section>
-          <!-- -i and -t -->
+          <section data-transition="none">
+            <img src="images/dockerRun1.png" />
+          </section>
+          <section data-transition="none">
+            <img src="images/dockerRun2.png" />
+          </section>
+          <section data-transition="none">
+            <img src="images/dockerRun3.png" />
+          </section>
+          <section data-transition="none">
+            <img src="images/dockerRun4.png" />
+          </section>
+          <section data-transition="none">
+            <img src="images/dockerRun5.png" />
+          </section>
           <section>
             <h2>Run in the background</h2>
             <pre><code>$ docker run -d debian /bin/bash -c "while true; do sleep 1; done"
@@ -663,7 +678,7 @@ services:
             <a href="https://hub.docker.com/r/drush/drush/">hub.docker.com/r/drush/drush</a>
           </section>
           <section>
-            <h2>But what about files?</h2>
+            <img src="images/butHowDoIUseMyFiles.png" />
           </section>
           <section>
             <h2>Reusing volumes</h2>
@@ -695,7 +710,7 @@ services:
       - MYSQL_PASSWORD=your_database_password</code></pre>
             <small class="fragment">(Scroll down.)</small>
           </section>
-          <section>
+          <section data-background-size="contain" data-background="images/whyDidDrushStop1.png" data-transition="none" data-background-transition="none">
             <pre><code>$ docker-compose ps
         Name                     Command             State            Ports
 ------------------------------------------------------------------------------------
@@ -703,8 +718,13 @@ ridethewhale_db_1      docker-entrypoint.sh mysqld   Up       0.0.0.0:3306->3306
 ridethewhale_drush_1   drush                         Exit 0
 ridethewhale_web_1     apache2-foreground            Up       0.0.0.0:80->80/tcp</code></pre>
           </section>
-          <section>
-            <h2>Why did drush stop?</h2>
+          <section data-background-size="contain" data-background="images/whyDidDrushStop2.png" data-transition="none" data-background-transition="none">
+            <pre><code>$ docker-compose ps
+        Name                     Command             State            Ports
+------------------------------------------------------------------------------------
+ridethewhale_db_1      docker-entrypoint.sh mysqld   Up       0.0.0.0:3306->3306/tcp
+ridethewhale_drush_1   drush                         Exit 0
+ridethewhale_web_1     apache2-foreground            Up       0.0.0.0:80->80/tcp</code></pre>
           </section>
           <section>
             <h2>Task-specific containers</h2>
@@ -736,17 +756,103 @@ $</code></pre>
           <section>
             <img src="images/drupal-installed.png" />
           </section>
-          <section>
-            <h2>Have a DB dump?</h2>
-            <p class="fragment">Use a client on the host to load it</p>
-          </section>
         </section>
 
-        <!-- <section>
+        <section>
           <section>
-            <h1>Finishing touches</h1>
+            <h1>Dockerizing Existing Sites</h1>
           </section>
-        </section> -->
+          <section>
+            <h2>Avoid DB dumps!</h2>
+            <p class="fragment">No really, don't use them.</p>
+          </section>
+          <section>
+            <h2>DB dumps are Tribbles</h2>
+            <p class="fragment">They quickly become a big problem.</p>
+          </section>
+          <section>
+            <h2>Content in code</h2>
+            <p>Create represtative content with <a href="https://www.drupal.org/project/uuid_features">UUID Features</a></p>
+            <p class="fragment">Works better with Behat and automation</p>
+          </section>
+          <section>
+            <h2>I have a DB dump. Sorry. ;_;</h2>
+            <p class="fragment">Use a client on the host to load it</p>
+            <p class="fragment">Best for small (&lt;100MB) databases</p>
+          </section>
+          <section>
+            <h2>Larger DBs</h2>
+            <p class="fragment">Import from <em>inside</em> the DB container</p>
+          </section>
+          <section>
+            <h2>Create a dumps directory</h2>
+            <p class="fragment">Make sure to add it to .gitignore!</p>
+          </section>
+          <section>
+            <pre><code>/home/tess/projects/rideTheWhale
+├── db-dumps
+│   └── your_db_dump.sql
+├── .docker
+│   ├── web
+│   │   └── Dockerfile
+│   └── db
+├── docker-compose.yml
+└── docroot
+    └── index.html</code></pre>
+          </section>
+          <section>
+            <h2>Mount the dump directory</h2>
+            <p>in the DB container</p>
+          </section>
+          <section>
+            <pre><code>version: '2'
+services:
+  web:
+    build: .docker/web
+    ports:
+      - "80:80"
+    volumes:
+      - ./docroot:/var/www/html
+  drush:
+    image: drush/drush
+    volumes_from:
+      - web
+  db:
+    image: mariadb
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./db-dumps:/tmp/db-dumps
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=your_database_name
+      - MYSQL_USER=your_database_user
+      - MYSQL_PASSWORD=your_database_password</code></pre>
+            <small class="fragment">(Scroll down.)</small>
+          </section>
+          <section>
+            <h2>Loading the database</h2>
+            <p class="fragment">Kill, re-up the container set</p>
+            <p class="fragment">Enter the DB container with <code>docker-compose exec</code></p>
+            <p class="fragment">Run the import command</p>
+          </section>
+          <section>
+            <pre><code>$ docker-compose kill
+$ docker-compose up -d
+
+$ docker-compose exec db /bin/bash
+
+root@db4e9277df30:/# mysql -u your_database_user \
+                           -p \
+                           -C your_database_name \
+                           < /tmp/your_db_dump.sql</code></pre>
+           <p class="fragment">Same command you'd run for local MySQL</p>
+          </section>
+          <section>
+            <h2>Configure settings.php</h2>
+            <p>Use settings.local.php if you can!</p>
+          </section>
+        </section>
 
         <section>
           <section>
@@ -790,6 +896,23 @@ $</code></pre>
             <h2>Contibute to Hub</h2>
             <p>It's free and anyone can do it</p>
             <p class="fragment">Hub builds your containers, so you don't have to locally</p>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h1>Special thanks</h1>
+            <p class="fragment">Drupalcorn Team</p>
+            <p class="fragment">Marc Drummond, Paul Mitchum</p>
+            <p class="fragment">and others</p>
+          </section>
+          <section>
+            <h1>Thank you!</h1>
+            <p>&nbsp;</p>
+            <p>Read the blog series:<br />
+            <a href="http://deninet.com/tags/docker-scratch">deninet.com/tags/docker-scratch</a></p>
+            <p>&nbsp;</p>
+            <p>socketwench.github.io/rideTheWhale</p>
           </section>
         </section>
 
