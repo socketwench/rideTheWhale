@@ -46,11 +46,9 @@
           </section>
           <section>
             <h2>Hire me!</h2>
-            <blockquote>
-              Coding, DevOps, Training, Evangelism?<br />
-              Let me be your swiss army knife!
-            </blockquote>
-            <p>tess@deninet.com</p>
+            <p class="fragment">Coding, DevOps, Training, Evangelism?</p>
+						<p class="fragment">Let me be your swiss army knife!</p>
+            <p class="fragment">tess@deninet.com</p>
           </section>
         </section>
 
@@ -879,11 +877,83 @@ root@db4e9277df30:/# mysql -u your_database_user \
           </section>
         </section>
 
-        <!-- <section>
+        <section>
           <section>
             <h1>Cleaning up</h1>
           </section>
-        </section> -->
+					<section>
+						<h2>Deleting a set</h2>
+						<pre><code>$ docker-compose kill
+$ docker-compose rm</code></pre>
+					</section>
+					<section data-transition="none">
+						<img src="images/whyIsMyDiskFull1.png" />
+					</section>
+					<section data-transition="none">
+						<img src="images/whyIsMyDiskFull2.png" />
+					</section>
+					<section>
+						<h2>Deleting volumes</h2>
+						<p><em>Not deleted by default!</em></p>
+						<pre class="fragment"><code>$ docker-compose rm -v</code></pre>
+					</section>
+					<section>
+						<h2>Listing volumes</h2>
+						<pre><code>$  docker volume ls
+DRIVER              VOLUME NAME
+local               6225f43f2a56f11770d6fa0e3feabd7504b52e14e146a54615bafd5b8fbbc405
+local               8ab7f7e586ad2a665aebd8b1c9cfab23c30c6c6d6781cd7fe62b4c7124eb9936</code></pre>
+					</section>
+					<section>
+						<h2>Dangling volumes</h2>
+						<p>Happens when a container is deleted without <code>-v</code></p>
+					</section>
+					<section>
+						<h2>Listing dangling volumes</h2>
+						<pre><code>$ docker volume ls -f dangling=true
+DRIVER              VOLUME NAME
+local               3eb912032273672646c80e16573eb2649bb18f4ee4c6a24043152be1ddc85f1d</code></pre>
+					</section>
+					<section>
+						<h2>Removing dangling volumes</h2>
+						<pre><code>$ docker volume rm $(docker volume ls -qf dangling=true)</code></pre>
+					</section>
+					<section>
+						<img src="images/anythingElse.png" />
+					</section>
+					<section>
+						<h2>Images</h2>
+						<p>Snapshot of a container</p>
+						<p class="fragment">Created with <code>docker build</code>...</p>
+						<p class="fragment">...or downloaded from Hub</p>
+					</section>
+					<section>
+						<h2>Listing images</h2>
+						<pre><code>$ docker images
+REPOSITORY           TAG        IMAGE ID         CREATED            SIZE
+ridethewhale_web     latest     e716ac87fa15     17 minutes ago     496.4 MB
+mariadb              latest     9a0138c02438     6 days ago         391.6 MB
+drush/drush          latest     e88ee37fadfd     7 weeks ago        691.9 MB</code></pre>
+						<small class="fragment">(Scroll right.)</small>
+					</section>
+					<section>
+						<h2>Deleting images</h2>
+						<pre><code>$ docker rmi $(docker images -q)</code></pre>
+					</section>
+					<section>
+						<h2>Nuke it from orbit</h2>
+						<pre><code>$ docker kill $(docker ps -q)
+$ docker rm -v $(docker ps -q -a)
+$ docker volume rm $(docker volume ls -q)
+$ docker rmi $(docker images -q)</code></pre>
+						<p class="fragment">"It's the only way to be sure."</p>
+					</section>
+					<section>
+						<h2>Nuking Docker for Mac/Win</h2>
+						<p>"Reset to factory defaults" in Docker prefs</p>
+						<img src="images/nukeOnMacWin.png" />
+					</section>
+        </section>
 
         <section>
           <section>
@@ -934,6 +1004,7 @@ root@db4e9277df30:/# mysql -u your_database_user \
           <section>
             <h1>Special thanks</h1>
             <p class="fragment">Drupalcorn Team</p>
+						<p class="fragment">TEN7</p>
             <p class="fragment">Marc Drummond, Paul Mitchum</p>
             <p class="fragment">and others</p>
           </section>
