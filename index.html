@@ -44,12 +44,12 @@
           <section data-transition="none">
             <img src="images/socketwench4.png" />
           </section>
-          <section>
+          <!-- <section>
             <h2>Hire me!</h2>
             <p class="fragment">Coding, DevOps, Training, Evangelism?</p>
 						<p class="fragment">Let me be your swiss army knife!</p>
             <p class="fragment">tess@deninet.com</p>
-          </section>
+          </section> -->
         </section>
 
         <section>
@@ -332,7 +332,7 @@ root@b4d333ad4d0f:/#</code></pre>
             <p class="fragment">Use <code>exit</code> to quit</p>
           </section>
           <section>
-            <h2>Stopping detached containers</h2>
+            <h2>Stopping containers by ID</h2>
             <code>docker kill <em>container_id</em></code>
           </section>
         </section>
@@ -640,7 +640,7 @@ MAINTAINER tess@deninet.com</code></pre>
             <h2><code>RUN</code> directive</h2>
             <code>RUN <em>/command/to/run</em></code>
           </section>
-          <section>
+          <!-- <section>
             <h2><code>RUN</code> is not interactive!</h2>
             <p class="fragment">Can fail/hang building a container</p>
             <p class="fragment">Search for "headless", "unattended installation"</p>
@@ -649,7 +649,7 @@ MAINTAINER tess@deninet.com</code></pre>
             <h2>Non-interactive <code>apt-get</code></h2>
             <p class="fragment"><code>apt-get -yq <em>packagesToInstall</em></code></p>
             <p class="fragment">"Yes to all questions, use Quiet installation."</p>
-          </section>
+          </section> -->
           <section>
             <pre><code>FROM php:apache
 MAINTAINER tess@deninet.com
@@ -904,7 +904,7 @@ $ docker-compose rm</code></pre>
 						<p><em>Not deleted by default!</em></p>
 						<pre class="fragment"><code>$ docker-compose rm -v</code></pre>
 					</section>
-					<section>
+					<!-- <section>
 						<h2>Listing volumes</h2>
 						<pre><code>$  docker volume ls
 DRIVER              VOLUME NAME
@@ -924,7 +924,7 @@ local               3eb912032273672646c80e16573eb2649bb18f4ee4c6a24043152be1ddc8
 					<section>
 						<h2>Removing dangling volumes</h2>
 						<pre><code>$ docker volume rm $(docker volume ls -qf dangling=true)</code></pre>
-					</section>
+					</section> -->
 					<section>
 						<img src="images/anythingElse.png" />
 					</section>
@@ -951,7 +951,6 @@ drush/drush          latest     e88ee37fadfd     7 weeks ago        691.9 MB</co
 						<h2>Nuke it from orbit</h2>
 						<pre><code>$ docker kill $(docker ps -q)
 $ docker rm -v $(docker ps -q -a)
-$ docker volume rm $(docker volume ls -q)
 $ docker rmi $(docker images -q)</code></pre>
 						<p class="fragment">"It's the only way to be sure."</p>
 					</section>
