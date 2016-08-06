@@ -808,79 +808,21 @@ $</code></pre>
           <section>
             <h2>I have a DB dump. Sorry. ;_;</h2>
             <p class="fragment">Use a client on the host to load it</p>
-            <p class="fragment">Best for small (&lt;100MB) databases</p>
+            <p class="fragment">Best for small databases</p>
           </section>
           <section>
-            <h2>Larger DBs</h2>
-            <p class="fragment">Import from <em>inside</em> the DB container</p>
-          </section>
-          <section>
-            <h2>Create a dumps directory</h2>
-            <p class="fragment">Make sure to add it to .gitignore!</p>
-          </section>
-          <section>
-            <pre><code>/home/tess/projects/rideTheWhale
-├── db-dumps
-│   └── your_db_dump.sql
-├── .docker
-│   ├── web
-│   │   └── Dockerfile
-│   └── db
-├── docker-compose.yml
-└── docroot
-    └── index.html</code></pre>
-          </section>
-          <section>
-            <h2>Mount the dump directory</h2>
-            <p>in the DB container</p>
-          </section>
-          <section>
-            <pre><code>version: '2'
-services:
-  web:
-    build: .docker/web
-    ports:
-      - "80:80"
-    volumes:
-      - ./docroot:/var/www/html
-  drush:
-    image: drush/drush
-    volumes_from:
-      - web
-  db:
-    image: mariadb
-    ports:
-      - "3306:3306"
-    volumes:
-      - ./db-dumps:/tmp/db-dumps
-    environment:
-      - MYSQL_ROOT_PASSWORD=root
-      - MYSQL_DATABASE=your_database_name
-      - MYSQL_USER=your_database_user
-      - MYSQL_PASSWORD=your_database_password</code></pre>
-            <small class="fragment">(Scroll down.)</small>
-          </section>
-          <section>
-            <h2>Loading the database</h2>
-            <p class="fragment">Kill, re-up the container set</p>
-            <p class="fragment">Enter the DB container with <code>docker-compose exec</code></p>
-            <p class="fragment">Run the import command</p>
-          </section>
-          <section>
-            <pre><code>$ docker-compose kill
-$ docker-compose up -d
-
-$ docker-compose exec db /bin/bash
-
-root@db4e9277df30:/# mysql -u your_database_user \
-                           -p \
-                           -C your_database_name \
-                           < /tmp/your_db_dump.sql</code></pre>
-           <p class="fragment">Same command you'd run for local MySQL</p>
-          </section>
-          <section>
-            <h2>Configure settings.php</h2>
-            <p>Use settings.local.php if you can!</p>
+						<pre><code>$ docker-compose exec db /usr/bin/mysql \
+	-u your_database_user \
+	-p \
+	-C your_database_name < /path/to/your_dump.sql</code></pre>
+							<p class="fragment"><code>mariadb</code> container needs the <code>mysql</code> command!</p>
+					</section>
+					<section data-background="images/dangerWillDockerson.png" data-background-size="contain">
+            <h2>Gigabyte DBs</h2>
+						<p class="fragment">Increase <code>max_allowed_packet</code></p>
+            <p class="fragment">Import from <em>inside</em> the DB container with a volume</p>
+						<p>&nbsp;</p>
+						<p>&nbsp;</p>
           </section>
         </section>
 
