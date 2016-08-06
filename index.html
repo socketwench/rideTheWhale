@@ -296,6 +296,13 @@
           <section data-transition="none">
             <img src="images/dockerRun5.png" />
           </section>
+					<section>
+						<pre><code>$ docker run -i -t debian /bin/bash
+root@ffc6d3de3d27:/#
+root@ffc6d3de3d27:/# uname -a
+Linux ffc6d3de3d27 4.4.15-moby #1 SMP Thu Jul 28 21:30:50 UTC 2016 x86_64 GNU/Linux</code></pre>
+						<p class="fragment">Use <code>exit</code> to quit</p>
+					</section>
           <section>
             <h2>Run in the background</h2>
             <pre><code>$ docker run -d debian /bin/bash -c "while true; do sleep 1; done"
