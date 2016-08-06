@@ -4,7 +4,7 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>reveal.js</title>
+		<title>Ride the Whale! Docker for Drupalists</title>
 
 		<link rel="stylesheet" href="css/reveal.css">
 		<link rel="stylesheet" href="css/theme/moby.css">
@@ -25,19 +25,1005 @@
 		<div class="reveal">
 			<div class="slides">
 				<section>
-          <h1>Title Slide</h1>
+          <h1>Ride the Whale!</h1>
+          <h2>Docker for Drupalists</h2>
+          <img src="images/controls.png" />
+          <p>socketwench.github.io/rideTheWhale</p>
         </section>
-				<section>
-          <h2>Slide title</h2>
-          <p>Text</p>
-        </section>
+
         <section>
-          <pre><code>
-void main (void) {
-  return 0;
-}
-          </code></pre>
+          <section data-transition="none">
+            <img src="images/socketwench1.png" />
+          </section>
+          <section data-transition="none">
+            <img src="images/socketwench2.png" />
+          </section>
+          <section data-transition="none">
+            <img src="images/socketwench3.png" />
+          </section>
+          <section data-transition="none">
+            <img src="images/socketwench4.png" />
+          </section>
+          <!-- <section>
+            <h2>Hire me!</h2>
+            <p class="fragment">Coding, DevOps, Training, Evangelism?</p>
+						<p class="fragment">Let me be your swiss army knife!</p>
+            <p class="fragment">tess@deninet.com</p>
+          </section> -->
         </section>
+
+        <section>
+          <section data-background="images/moby.png" data-background-size="contain">
+            <h1>"What's wrong with MAMP?"</h1>
+          </section>
+          <section>
+            <h2>Problem #1</h2>
+            <p>No sandboxing</p>
+          </section>
+					<section data-transition="none">
+						<img src="images/howOldIsThis1.png" />
+					</section>
+					<section data-transition="none">
+						<img src="images/howOldIsThis2.png" />
+					</section>
+					<section data-transition="none">
+						<img src="images/howOldIsThis3.png" />
+					</section>
+					<section data-transition="none">
+						<img src="images/howOldIsThis4.png" />
+					</section>
+          <section>
+            <h2>What happens outside the repo...</h2>
+            <p class="fragment">...stays on your system forever</p>
+          </section>
+          <section>
+            <h2>Like pulling weeds</h2>
+            <p class="fragment">Files, databases, config, binaries</p>
+            <p class="fragment">Takes time, disipline to find and remove</p>
+          </section>
+          <section>
+            <h2>Docker sandboxes everything</h2>
+            <p class="fragment">Standard commands for delete</p>
+            <p class="fragment">No matter the project or tech stack</p>
+          </section>
+          <section>
+            <h2>Problem #2</h2>
+            <p>Dev environment isn't repeatable</p>
+          </section>
+					<section data-transition="none">
+            <img src="images/newLaptop1.png" >
+          </section>
+					<section data-transition="none">
+            <img src="images/newLaptop2.png" >
+          </section>
+					<section>
+            <h2>Instructions aren't enough</h2>
+            <p class="fragment">Humans are fallible, forgettable, fried</p>
+          </section>
+          <section>
+            <h2>No Special Snowflakes</h2>
+            <p class="fragment">Docker containers repeatable by design</p>
+            <p class="fragment">Built from a few simple text files</p>
+          </section>
+          <section>
+            <h2>Problem #3</h2>
+            <p>Dev environment isn't sharable</p>
+          </section>
+					<section data-transition="none">
+						<img src="images/sharingServers1.png" >
+					</section>
+					<section data-transition="none">
+						<img src="images/sharingServers2.png" >
+					</section>
+					<section data-transition="none">
+						<img src="images/sharingServers3.png" >
+					</section>
+					<section data-transition="none">
+						<img src="images/sharingServers4.png" >
+					</section>
+          <section>
+            <h2>You can't share <br /> a house of cards</h2>
+            <p class="fragment">That's what bespoke environments are</p>
+          </section>
+          <section>
+            <h2>Adds hidden costs</h2>
+            <p class="fragment">On-boarding, troubleshooting, and recovery time</p>
+          </section>
+          <section>
+            <h2>The DRY principle...</h2>
+            <p class="fragment">...should apply to servers too</p>
+          </section>
+          <section>
+            <h2>Docker is sharable</h2>
+            <p class="fragment">Download from the internet</p>
+            <p class="fragment">Add build files to your repo</p>
+          </section>
+        </section>
+
+        <section>
+          <section data-background="images/moby.png" data-background-size="contain">
+            <h1>Getting Docker</h1>
+          </section>
+          <section>
+            <h2>Do I need to pay for it?</h2>
+            <p>Docker is free and open source!</p>
+            <a href="https://github.com/docker/docker">github.com/docker/docker</a>
+          </section>
+          <section>
+            <h2>Docker for Mac and Win</h2>
+            <a href="https://www.docker.com/products/docker">docker.com/products/docker</a>
+            <p class="fragment">Docker 1.12+</p>
+          </section>
+          <section>
+            <h2>Older Systems?</h2>
+            <a href="https://www.docker.com/products/docker-toolbox">docker.com/products/docker-toolbox</a>
+            <p class="fragment">Includes Virtualbox</p>
+          </section>
+          <section>
+            <img src="images/waitINeedAVM.png" />
+          </section>
+          <section data-transition="none">
+            <img src="images/linuxAndDocker1.png" />
+          </section>
+          <section data-transition="none">
+            <img src="images/linuxAndDocker2.png" />
+          </section>
+          <section data-transition="none">
+            <img src="images/linuxAndDocker3.png" />
+          </section>
+          <section data-transition="none">
+            <img src="images/whyYouNeedAVM1.png" />
+          </section>
+          <section data-transition="none">
+            <img src="images/whyYouNeedAVM2.png" />
+          </section>
+          <section data-transition="none">
+            <img src="images/whyYouNeedAVM3.png" />
+          </section>
+          <section data-transition="none">
+            <img src="images/whyYouNeedAVM4.png" />
+          </section>
+          <section data-transition="none">
+            <img src="images/whyYouNeedAVM5.png" />
+          </section>
+          <section data-transition="none">
+            <img src="images/whyYouNeedAVM6.png" />
+          </section>
+          <section data-transition="none">
+            <img src="images/whyYouNeedAVM7.png" />
+          </section>
+          <section data-transition="none">
+            <img src="images/whyYouNeedAVM8.png" />
+          </section>
+          <section data-transition="none">
+            <img src="images/whyYouNeedAVM9.png" />
+          </section>
+          <section>
+            <h2>Docker's Hypervisor</h2>
+            <p class="fragment">Embedded in Docker 1.12+</p>
+            <p class="fragment">Virtualbox for earlier versions</p>
+          </section>
+          <section>
+            <h2>Docker on Linux</h2>
+            <p>No VM needed, uses host's kernel</p>
+            <p>Use your distro's package manager to install</p>
+          </section>
+        </section>
+
+        <section>
+          <section data-background="images/moby.png" data-background-size="contain">
+            <h1>Getting containers</h1>
+          </section>
+          <section>
+            <h2>Docker is like Vagrant</h2>
+            <p>You rarely build containers yourself.</p>
+          </section>
+          <section>
+            <h2>Docker Hub</h2>
+            <p>Online repository of ready-to-use containers</p>
+            <a href="https://hub.docker.com/">hub.docker.com</a>
+          </section>
+          <section data-transition="none">
+            <img src="images/hubUpload1.png" />
+          </section>
+          <section data-transition="none">
+            <img src="images/hubUpload2.png" />
+          </section>
+          <section data-transition="none">
+            <img src="images/hubUpload3.png" />
+          </section>
+          <section data-transition="none">
+            <img src="images/hubUpload4.png" />
+          </section>
+          <section data-transition="none">
+            <img src="images/hubUpload5.png" />
+          </section>
+          <section data-transition="none">
+            <img src="images/hubUpload6.png" />
+          </section>
+          <section>
+            <h2>Official Containers</h2>
+            <p>Typically created by project maintainers</p>
+            <p>Apache, PHP, MySQL, and many Linux Distros</p>
+          </section>
+          <section>
+            <h2>Official Drupal Container</h2>
+            <a href="https://hub.docker.com/_/drupal/">hub.docker.com/_/drupal</a>
+            <p><span class="fragment">Great for demos...</span><span class="fragment">not great for development.</span></p>
+          </section>
+          <section>
+            <h2>Downloading Containers</h2>
+            <code>docker pull <em>image_name</em></code>
+            <p><em>image_name</em> is the name on Docker Hub</p>
+          </section>
+          <section>
+            <h2>Pulling Debian</h2>
+            <pre><code>$ docker pull debian</code></pre>
+            <p>Good "base image" for web projects</p>
+          </section>
+          <section>
+            <h2>Container tags</h2>
+            <code><em>image_name</em>:<em>tag</em></code>
+            <p>Used for different versions or varients</p>
+          </section>
+          <section>
+            <h2>Tags are optional</h2>
+            <p>Default to <code>latest</code></p>
+            <p class="fragment">Unique per container, check page on Hub</p>
+          </section>
+        </section>
+
+        <section>
+          <section data-background="images/moby.png" data-background-size="contain">
+            <h1>Using containers</h1>
+          </section>
+          <section>
+            <h2>Running a container</h2>
+            <code>docker run <em>image_name</em></code>
+          </section>
+          <section data-transition="none">
+            <img src="images/dockerRun1.png" />
+          </section>
+          <section data-transition="none">
+            <img src="images/dockerRun2.png" />
+          </section>
+          <section data-transition="none">
+            <img src="images/dockerRun3.png" />
+          </section>
+          <section data-transition="none">
+            <img src="images/dockerRun4.png" />
+          </section>
+          <section data-transition="none">
+            <img src="images/dockerRun5.png" />
+          </section>
+					<section>
+						<pre><code>$ docker run -i -t debian /bin/bash
+root@ffc6d3de3d27:/#
+root@ffc6d3de3d27:/# uname -a
+Linux ffc6d3de3d27 4.4.15-moby #1 SMP Thu Jul 28 21:30:50 UTC 2016 x86_64 GNU/Linux</code></pre>
+						<p class="fragment">Use <code>exit</code> to quit</p>
+					</section>
+          <section>
+            <h2>Run in the background</h2>
+            <pre><code>$ docker run -d debian /bin/bash -c "while true; do sleep 1; done"
+b4d333ad4d0f9c68249a091fdde53d25a09cbc785c5aba2a697b3a3ea04da778
+
+$</code></pre>
+            <p class="fragment">Think "detach"</p>
+          </section>
+          <section>
+            <h2>Container IDs</h2>
+            <p>Unique identifier for that container instance</p>
+            <p>Use the first few characters as a shorthand</p>
+          </section>
+          <section>
+            <h2>Listing containers</h2>
+            <code>docker ps</code>
+            <p class="fragment">Think "process"</p>
+          </section>
+          <section>
+            <h2>Using a detached container</h2>
+            <code>docker exec <em>container_id</em> <em>/command/to/run</em></code>
+          </section>
+          <section>
+            <h2>Using <code>exec</code></h2>
+            <pre><code>$ docker exec -i -t b4d /bin/bash
+root@b4d333ad4d0f:/#</code></pre>
+            <p class="fragment">Use <code>exit</code> to quit</p>
+          </section>
+          <section>
+            <h2>Stopping containers by ID</h2>
+            <code>docker kill <em>container_id</em></code>
+          </section>
+        </section>
+
+        <section>
+          <section data-background="images/moby.png" data-background-size="contain">
+            <h1>Building a web stack</h1>
+          </section>
+          <section>
+            <h2>"A container is just a process"</h2>
+            <p class="fragment">Not exactly true, but close</p>
+          </section>
+          <section>
+            <h2>LAMP needs multiple processes</h2>
+            <p class="fragment">One process = one container</p>
+          </section>
+          <section>
+            <h2>Docker Compose</h2>
+            <p>Manage "container sets" with one file</p>
+          </section>
+          <section>
+            <h2>docker-compose.yml</h2>
+            <p>Descriptive, not imperitive</p>
+            <p>Save in the root directory of your project!</p>
+          </section>
+          <section>
+            <h2>A basic LAMP set</h2>
+            <pre><code>version: '2'
+services:
+  web:
+    image: php:apache
+  db:
+    image: mariadb</code></pre>
+          </section>
+          <section>
+            <h2>Starting container sets</h2>
+            <code>docker-compose up -d</code>
+            <p class="fragment">docker-compose.yml must be in current directory!</p>
+          </section>
+          <section>
+            <h2>Listing container sets</h2>
+            <pre><code>$ docker-compose ps
+       Name                    Command             State    Ports
+------------------------------------------------------------------
+ridethewhale_db_1    docker-entrypoint.sh mysqld   Exit 1
+ridethewhale_web_1   apache2-foreground            Up       80/tcp</code></pre>
+          </section>
+          <section>
+            <h2>Compose and container names</h2>
+            <code><em>parentDirName</em>_<em>serviceName</em>_<em>index</em></code>
+          </section>
+          <section>
+            <h2>Use unique project names!</h2>
+            <pre><code>/home/tess/projects/rideTheWhale
+├── docker-compose.yml
+└── docroot</code></pre>
+          </section>
+          <section>
+            <h2>Port mapping</h2>
+            <p>Needed to access the container from the host</p>
+            <p class="fragment"><code>"<em>portOnHost</em>:<em>portInContainer</em>"</code></p>
+          </section>
+          <section>
+            <pre><code>version: '2'
+services:
+  web:
+    image: php:apache
+    ports:
+      - "80:80"
+  db:
+    image: mariadb</code></pre>
+          </section>
+          <section>
+            <h2>Updating containers</h2>
+            <pre><code>$ docker-compose kill
+$ docker-compose up -d</code></pre>
+          </section>
+          <section>
+            <img src="images/web-forbidden.png" />
+          </section>
+        </section>
+
+        <section>
+          <section data-background="images/moby.png" data-background-size="contain">
+            <h1>Getting files in the container</h1>
+          </section>
+          <section>
+            <h2>Volumes</h2>
+            <p class="fragment">Creates a persistent directory inside a container</p>
+            <p class="fragment">Mounts a directory or file in the container</p>
+          </section>
+          <section>
+            <h2>Volumes in Compose</h2>
+            <p>In the <code>volumes</code> section...</p>
+            <code><em>path/on/host</em>:<em>path/in/container</em></code>
+          </section>
+          <section>
+            <h2>Our project so far</h2>
+            <pre><code>/home/tess/projects/rideTheWhale
+├── docker-compose.yml
+└── docroot
+    └── index.html</code></pre>
+          </section>
+          <section>
+            <pre><code>version: '2'
+services:
+  web:
+    image: php:apache
+    ports:
+      - "80:80"
+    volumes:
+      - ./docroot:/var/www/html
+  db:
+    image: mariadb</code></pre>
+          </section>
+          <section>
+            <h2>Specifying paths</h2>
+            <p class="fragment">Use relative paths to Compose file</p>
+            <p class="fragment">Use absolute paths in the container</p>
+          </section>
+          <section>
+            <h2>Kill, up, refresh...</h2>
+          </section>
+          <section>
+            <img src="images/web-static.png" />
+          </section>
+        </section>
+
+        <section>
+          <section data-background="images/moby.png" data-background-size="contain">
+            <h1>Configuration</h1>
+          </section>
+          <section>
+            <h2>How to pass config?</h2>
+            <p class="fragment">Bake it into the container</p>
+            <p class="fragment">Mount configuration files</p>
+            <p class="fragment">Use environment variables</p>
+          </section>
+          <section>
+            <h2>Setting variables</h2>
+            <p>In the <code>environment</code> section...</p>
+            <code><em>VAR_NAME</em>=<em>VALUE</em></code>
+          </section>
+          <section>
+            <h2>What vars to use?</h2>
+            <p>Check Hub page for variable names and use</p>
+          </section>
+          <section>
+            <pre><code>version: '2'
+services:
+  web:
+    image: php:apache
+    ports:
+      - "80:80"
+    volumes:
+      - ./docroot:/var/www/html
+  db:
+    image: mariadb
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=your_database_name
+      - MYSQL_USER=your_database_user
+      - MYSQL_PASSWORD=your_database_password</code></pre>
+            <small class="fragment">(Scroll down.)</small>
+          </section>
+          <section>
+            <h2>Wait, no port?</h2>
+            <p class="fragment">Private network automatically created per set</p>
+            <p class="fragment">Containers preconfigured with the right port open</p>
+          </section>
+          <section>
+            <pre><code>version: '2'
+services:
+  web:
+    image: php:apache
+    ports:
+      - "80:80"
+    volumes:
+      - ./docroot:/var/www/html
+  db:
+    image: mariadb
+    ports:
+      - "3306:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=your_database_name
+      - MYSQL_USER=your_database_user
+      - MYSQL_PASSWORD=your_database_password</code></pre>
+            <small class="fragment">(Scroll down.)</small>
+          </section>
+          <section>
+            <pre><code>$ docker-compose kill &amp;&amp; docker-compose up -d
+$ mysql -u your_database_user -p -h 127.0.0.1 -P 3306
+Enter password:
+
+Welcome to the MariaDB monitor.  Commands end with ; or \g.
+Your MariaDB connection id is 2
+Server version: 10.1.16-MariaDB-1~jessie mariadb.org binary distribution
+
+Copyright (c) 2000, 2016, Oracle, MariaDB Corporation Ab and others.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+MariaDB [(none)]></code></pre>
+          </section>
+        </section>
+
+        <section>
+          <section data-background="images/moby.png" data-background-size="contain">
+            <h1>Now for Drupal!</h1>
+          </section>
+          <section>
+            <h2>Prepping the files</h2>
+            <p class="fragment">Download to volume-mounted directory</p>
+            <p class="fragment">Create, set permissions for files directory</p>
+            <p class="fragment">Create services.yml and settings.php as normal</p>
+          </section>
+          <section>
+            <img src="images/drupal-install1.png" />
+          </section>
+          <section>
+            <img src="images/finally.png" />
+          </section>
+          <section>
+            <img src="images/drupal-install2.png" />
+          </section>
+          <section data-transition="none">
+            <img src="images/cursing.png" />
+          </section>
+          <section data-transition="none">
+            <img src="images/maybeWeCanCustomize.png" />
+          </section>
+        </section>
+
+        <section>
+          <section data-background="images/moby.png" data-background-size="contain">
+            <h1>Customizing containers</h1>
+          </section>
+          <section>
+            <h2>Dockerfiles</h2>
+            <p>Container "source code"</p>
+          </section>
+          <section>
+            <h2>Creating Dockerfiles</h2>
+            <p>Always named <code>Dockerfile</code></p>
+            <p>Imperitive, not descriptive</p>
+          </section>
+          <section>
+            <h2>Directories for containers</h2>
+            <pre><code>/home/tess/projects/rideTheWhale
+├── .docker
+│   ├── web
+│   │   └── Dockerfile
+│   └── db
+├── docker-compose.yml
+└── docroot
+    └── index.html</code></pre>
+            <p class="fragment">Common, but only a suggestion</p>
+          </section>
+          <section>
+            <h2>The first two lines</h2>
+            <pre><code>FROM php:apache
+MAINTAINER tess@deninet.com</code></pre>
+          </section>
+          <section>
+            <h2>Turtles all the way down</h2>
+            <p class="fragment">All containers are based on another container</p>
+          </section>
+          <section data-transition="none">
+            <img src="images/turtles1.png" />
+          </section>
+          <section data-transition="none">
+            <img src="images/turtles2.png" />
+          </section>
+          <section data-transition="none">
+            <img src="images/turtles3.png" />
+          </section>
+          <section data-transition="none">
+            <img src="images/turtles4.png" />
+          </section>
+          <section data-transition="none">
+            <img src="images/turtles5.png" />
+          </section>
+          <section>
+            <h2><code>scratch</code> container</h2>
+            <p>Starting point for all containers</p>
+            <p class="fragment">Just an empty *.tar.gz file</p>
+          </section>
+          <section>
+            <h2>"Base image"</h2>
+            <p class="fragment">Base Linux install (Debian, CentOS, Arch, etc.)</p>
+            <p class="fragment">Whatever image you start with</p>
+          </section>
+          <section>
+            <h2>No <code>INSTALL</code> directive</h2>
+            <p>Docker lets the <del>container</del> <ins>base image</ins> decide!</p>
+          </section>
+          <section>
+            <h2>Install commands</h2>
+            <p class="fragment">Debian uses <code>apt-get</code></p>
+            <p class="fragment">CentOS uses <code>yum</code></p>
+            <p class="fragment">Some containers provide special install scripts!</p>
+          </section>
+          <section>
+            <h2><code>RUN</code> directive</h2>
+            <code>RUN <em>/command/to/run</em></code>
+          </section>
+          <!-- <section>
+            <h2><code>RUN</code> is not interactive!</h2>
+            <p class="fragment">Can fail/hang building a container</p>
+            <p class="fragment">Search for "headless", "unattended installation"</p>
+          </section>
+          <section>
+            <h2>Non-interactive <code>apt-get</code></h2>
+            <p class="fragment"><code>apt-get -yq <em>packagesToInstall</em></code></p>
+            <p class="fragment">"Yes to all questions, use Quiet installation."</p>
+          </section> -->
+          <section>
+            <pre><code>FROM php:apache
+MAINTAINER tess@deninet.com
+
+RUN apt-get update && apt-get install -yq \
+    libfreetype6-dev \
+    libjpeg62-turbo-dev \
+    libmcrypt-dev \
+    libpng12-dev \
+    libicu-dev
+
+RUN docker-php-ext-install gd json intl pdo pdo_mysql mbstring</code></pre>
+          </section>
+          <section>
+            <h2>Dockerfiles and Compose</h2>
+            <code>build: <em>path/to/Dockerfile</em></code>
+            <p class="fragment">Use instead of <code>image</code></p>
+          </section>
+          <section>
+            <pre><code>version: '2'
+services:
+  web:
+    build: .docker/web
+    ports:
+      - "80:80"
+    volumes:
+      - ./docroot:/var/www/html
+  db:
+    image: mariadb
+    ports:
+      - "3306:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=your_database_name
+      - MYSQL_USER=your_database_user
+      - MYSQL_PASSWORD=your_database_password</code></pre>
+            <small class="fragment">(Scroll down.)</small>
+          </section>
+          <section>
+            <h2>No other lines changed?</h2>
+            <p class="fragment">We're just adding more to <code>php:apache</code></p>
+          </section>
+          <section>
+            <h2>Building a container set</h2>
+            <code>docker-compose build <em>optionalServiceName</em></code>
+            <p class="fragment">Must be run before <code>up</code>!</p>
+          </section>
+        </section>
+
+        <section>
+          <section data-background="images/moby.png" data-background-size="contain">
+            <h1>Adding Drush</h1>
+          </section>
+          <section>
+            <h2>There's a container for that</h2>
+            <a href="https://hub.docker.com/r/drush/drush/">hub.docker.com/r/drush/drush</a>
+          </section>
+          <section>
+            <img src="images/butHowDoIUseMyFiles.png" />
+          </section>
+          <section>
+            <h2>Reusing volumes</h2>
+            <p class="fragment">Copy and paste <code>volume</code> sections</p>
+            <p class="fragment">Used <a href="https://docs.docker.com/compose/compose-file/#/volumes-volume-driver">named volumes</a> (Compose 2+)</p>
+            <p class="fragment">Use <code>volumes_from</code></p>
+          </section>
+          <section>
+            <pre><code>version: '2'
+services:
+  web:
+    build: .docker/web
+    ports:
+      - "80:80"
+    volumes:
+      - ./docroot:/var/www/html
+  drush:
+    image: drush/drush
+    volumes_from:
+      - web
+  db:
+    image: mariadb
+    ports:
+      - "3306:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=your_database_name
+      - MYSQL_USER=your_database_user
+      - MYSQL_PASSWORD=your_database_password</code></pre>
+            <small class="fragment">(Scroll down.)</small>
+          </section>
+          <section data-background-size="contain" data-background="images/whyDidDrushStop1.png" data-transition="none" data-background-transition="none">
+            <pre><code>$ docker-compose ps
+        Name                     Command             State            Ports
+------------------------------------------------------------------------------------
+ridethewhale_db_1      docker-entrypoint.sh mysqld   Up       0.0.0.0:3306->3306/tcp
+ridethewhale_drush_1   drush                         Exit 0
+ridethewhale_web_1     apache2-foreground            Up       0.0.0.0:80->80/tcp</code></pre>
+          </section>
+          <section data-background-size="contain" data-background="images/whyDidDrushStop2.png" data-transition="none" data-background-transition="none">
+            <pre><code>$ docker-compose ps
+        Name                     Command             State            Ports
+------------------------------------------------------------------------------------
+ridethewhale_db_1      docker-entrypoint.sh mysqld   Up       0.0.0.0:3306->3306/tcp
+ridethewhale_drush_1   drush                         Exit 0
+ridethewhale_web_1     apache2-foreground            Up       0.0.0.0:80->80/tcp</code></pre>
+          </section>
+          <section>
+            <h2>Task-specific containers</h2>
+            <p class="fragment">Executes a command, then quits</p>
+            <p class="fragment">Must be run interactively!</p>
+          </section>
+          <section>
+            <h2>Running drush</h2>
+            <code>docker-compose run drush <em>drushCommand</em></code>
+            <p class="fragment">Creates a new container instace each time!</p>
+          </section>
+          <section>
+            <h2>A container is a process...</h2>
+            <p class="fragment">...and stays up as long as its process runs</p>
+          </section>
+          <section>
+            <pre><code>$ docker-compose run drush si  \
+    --uri=http://web \
+    --root=/var/www/html \
+    --db-url=mysql://your_database_user:your_database_password@db/your_database_name -y
+
+You are about to DROP all tables in your 'your_database_name' database. Do you want to continue? (y/n): y
+Starting Drupal installation. This takes a while. Consider using the --notify global option.                                                                  [ok]
+Installation complete.  User name: admin  User password: jvBdZnmeMt                                                                                           [ok]
+Congratulations, you installed Drupal!
+
+$</code></pre>
+          </section>
+          <section>
+            <img src="images/drupal-installed.png" />
+          </section>
+        </section>
+
+        <section>
+          <section data-background="images/moby.png" data-background-size="contain">
+            <h1>Dockerizing Existing Sites</h1>
+          </section>
+          <section>
+            <h2>Avoid DB dumps!</h2>
+            <p class="fragment">No really, don't use them.</p>
+          </section>
+          <section>
+            <h2>DB dumps are Tribbles</h2>
+            <p class="fragment">They quickly become a big problem.</p>
+          </section>
+          <section>
+            <h2>Content in code</h2>
+            <p>Create represtative content with <a href="https://www.drupal.org/project/uuid_features">UUID Features</a></p>
+            <p class="fragment">Works better with Behat and automation</p>
+          </section>
+          <section>
+            <h2>I have a DB dump. Sorry. ;_;</h2>
+            <p class="fragment">Use a client on the host to load it</p>
+            <p class="fragment">Best for small (&lt;100MB) databases</p>
+          </section>
+          <section>
+            <h2>Larger DBs</h2>
+            <p class="fragment">Import from <em>inside</em> the DB container</p>
+          </section>
+          <section>
+            <h2>Create a dumps directory</h2>
+            <p class="fragment">Make sure to add it to .gitignore!</p>
+          </section>
+          <section>
+            <pre><code>/home/tess/projects/rideTheWhale
+├── db-dumps
+│   └── your_db_dump.sql
+├── .docker
+│   ├── web
+│   │   └── Dockerfile
+│   └── db
+├── docker-compose.yml
+└── docroot
+    └── index.html</code></pre>
+          </section>
+          <section>
+            <h2>Mount the dump directory</h2>
+            <p>in the DB container</p>
+          </section>
+          <section>
+            <pre><code>version: '2'
+services:
+  web:
+    build: .docker/web
+    ports:
+      - "80:80"
+    volumes:
+      - ./docroot:/var/www/html
+  drush:
+    image: drush/drush
+    volumes_from:
+      - web
+  db:
+    image: mariadb
+    ports:
+      - "3306:3306"
+    volumes:
+      - ./db-dumps:/tmp/db-dumps
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=your_database_name
+      - MYSQL_USER=your_database_user
+      - MYSQL_PASSWORD=your_database_password</code></pre>
+            <small class="fragment">(Scroll down.)</small>
+          </section>
+          <section>
+            <h2>Loading the database</h2>
+            <p class="fragment">Kill, re-up the container set</p>
+            <p class="fragment">Enter the DB container with <code>docker-compose exec</code></p>
+            <p class="fragment">Run the import command</p>
+          </section>
+          <section>
+            <pre><code>$ docker-compose kill
+$ docker-compose up -d
+
+$ docker-compose exec db /bin/bash
+
+root@db4e9277df30:/# mysql -u your_database_user \
+                           -p \
+                           -C your_database_name \
+                           < /tmp/your_db_dump.sql</code></pre>
+           <p class="fragment">Same command you'd run for local MySQL</p>
+          </section>
+          <section>
+            <h2>Configure settings.php</h2>
+            <p>Use settings.local.php if you can!</p>
+          </section>
+        </section>
+
+        <section>
+          <section data-background="images/moby.png" data-background-size="contain">
+            <h1>Cleaning up</h1>
+          </section>
+					<section>
+						<h2>Deleting a set</h2>
+						<pre><code>$ docker-compose kill
+$ docker-compose rm</code></pre>
+					</section>
+					<section data-transition="none">
+						<img src="images/whyIsMyDiskFull1.png" />
+					</section>
+					<section data-transition="none">
+						<img src="images/whyIsMyDiskFull2.png" />
+					</section>
+					<section>
+						<h2>Deleting volumes</h2>
+						<p><em>Not deleted by default!</em></p>
+						<pre class="fragment"><code>$ docker-compose rm -v</code></pre>
+					</section>
+					<!-- <section>
+						<h2>Listing volumes</h2>
+						<pre><code>$  docker volume ls
+DRIVER              VOLUME NAME
+local               6225f43f2a56f11770d6fa0e3feabd7504b52e14e146a54615bafd5b8fbbc405
+local               8ab7f7e586ad2a665aebd8b1c9cfab23c30c6c6d6781cd7fe62b4c7124eb9936</code></pre>
+					</section>
+					<section>
+						<h2>Dangling volumes</h2>
+						<p>Happens when a container is deleted without <code>-v</code></p>
+					</section>
+					<section>
+						<h2>Listing dangling volumes</h2>
+						<pre><code>$ docker volume ls -f dangling=true
+DRIVER              VOLUME NAME
+local               3eb912032273672646c80e16573eb2649bb18f4ee4c6a24043152be1ddc85f1d</code></pre>
+					</section>
+					<section>
+						<h2>Removing dangling volumes</h2>
+						<pre><code>$ docker volume rm $(docker volume ls -qf dangling=true)</code></pre>
+					</section> -->
+					<section>
+						<img src="images/anythingElse.png" />
+					</section>
+					<section>
+						<h2>Images</h2>
+						<p>Snapshot of a container</p>
+						<p class="fragment">Created with <code>docker build</code>...</p>
+						<p class="fragment">...or downloaded from Hub</p>
+					</section>
+					<section>
+						<h2>Listing images</h2>
+						<pre><code>$ docker images
+REPOSITORY           TAG        IMAGE ID         CREATED            SIZE
+ridethewhale_web     latest     e716ac87fa15     17 minutes ago     496.4 MB
+mariadb              latest     9a0138c02438     6 days ago         391.6 MB
+drush/drush          latest     e88ee37fadfd     7 weeks ago        691.9 MB</code></pre>
+						<small class="fragment">(Scroll right.)</small>
+					</section>
+					<section>
+						<h2>Deleting images</h2>
+						<pre><code>$ docker rmi $(docker images -q)</code></pre>
+					</section>
+					<section>
+						<h2>Nuke it from orbit</h2>
+						<pre><code>$ docker kill $(docker ps -q)
+$ docker rm -v $(docker ps -q -a)
+$ docker rmi $(docker images -q)</code></pre>
+						<p class="fragment">"It's the only way to be sure."</p>
+					</section>
+					<section>
+						<h2>Nuking Docker for Mac/Win</h2>
+						<p>"Reset to factory defaults" in Docker prefs</p>
+						<img src="images/nukeOnMacWin.png" />
+					</section>
+        </section>
+
+        <section>
+          <section data-background="images/moby.png" data-background-size="contain">
+            <h1>Where to go from here</h1>
+          </section>
+          <section>
+            <h2>A better CLI container</h2>
+            <p class="fragment">Use Supervisor for an always-running container</p>
+            <p class="fragment">Drupal Console, SASS, Grunt, etc.</p>
+            <p class="fragment">Use <code>docker-compose exec</code> for more speed</p>
+          </section>
+          <section>
+            <h2>Read the docs</h2>
+            <p><a href="https://docs.docker.com/">docs.docker.com</a></p>
+            <p class="fragment"><a href="http://deninet.com/tags/docker-scratch">deninet.com/tags/docker-scratch</a></p>
+          </section>
+          <section>
+            <h2>Use pre-made containers</h2>
+            <p>Lots of options to choose from!</p>
+            <p class="fragment">Find the way that fits your style and project</p>
+          </section>
+          <section>
+            <h2>Dropwhale</h2>
+            <p class="fragment">Drop-in D8 module dev environment</p>
+            <p class="fragment">Pulls, installs Drupal dev internally</p>
+          </section>
+          <section>
+            <h2>Getting Dropwhale</h2>
+            <p><a href="https://github.com/socketwench/dropwhale">github.com/socketwench/dropwhale</a></p>
+          </section>
+          <section>
+            <h2>Docker4Drupal</h2>
+            <p class="fragment">Full-featured: Redis, Memcached, Solr</p>
+            <p class="fragment"><a href="http://docker4drupal.org/">docker4drupal.org</a></p>
+          </section>
+          <section>
+            <h2>Build your own!</h2>
+            <p class="fragment">Per-project is OK!</p>
+          </section>
+          <section>
+            <h2>Contibute to Hub</h2>
+            <p>It's free and anyone can do it</p>
+            <p class="fragment">Hub builds your containers, so you don't have to locally</p>
+          </section>
+        </section>
+
+        <section>
+          <section data-background="images/moby.png" data-background-size="contain">
+            <h1>Special thanks</h1>
+            <p class="fragment">Drupalcorn Team</p>
+						<p class="fragment">TEN7</p>
+            <p class="fragment">Marc Drummond, Paul Mitchum</p>
+            <p class="fragment">and others</p>
+          </section>
+          <section data-background="images/moby.png" data-background-size="contain">
+            <h1>Thank you!</h1>
+            <p>&nbsp;</p>
+            <p>Read the blog series:<br />
+            <a href="http://deninet.com/tags/docker-scratch">deninet.com/tags/docker-scratch</a></p>
+            <p>&nbsp;</p>
+            <p>socketwench.github.io/rideTheWhale</p>
+          </section>
+        </section>
+
 			</div>
 		</div>
 

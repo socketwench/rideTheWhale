@@ -1,0 +1,21 @@
+version: '2'
+services:
+  web:
+    build: .docker/web
+    ports:
+      - "80:80"
+    volumes:
+      - ./docroot:/var/www/html
+  drush:
+    image: drush/drush
+    volumes_from:
+      - web
+  db:
+    image: mariadb
+    ports:
+      - "3306:3306"
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=your_database_name
+      - MYSQL_USER=your_database_user
+      - MYSQL_PASSWORD=your_database_password
